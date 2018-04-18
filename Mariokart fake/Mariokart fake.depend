@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1524044983 source:f:\privat dega\c++\mariokart fake\main.cpp
+	<iostream>
+	"conio.h"
+	"windows.h"
+
+1524063607 source:g:\privat dega\c++\mariokart fake\main.cpp
+	<iostream>
+	"conio.h"
+	"windows.h"
+
