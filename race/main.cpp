@@ -88,5 +88,3 @@ int main() {
 
     return 0;
 }
-
-// ne du bich
