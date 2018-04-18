@@ -1,13 +1,16 @@
 #include <iostream>
 #include "conio.h"
 #include "windows.h"
+#include "Map.h"
 
-int x{0}, y{0}, x2{1}, y2{1};
-const int mapSize{64};
+int x{0}, y{0}, x2{1}, y2{0};
+const int mapSize{32};
 
 enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN};
 Direction dir;
 Direction dir2;
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void Draw();
 void Input();
@@ -20,7 +23,6 @@ int main()
         Draw();
         Input();
         Logic();
-        system("cls");
         Sleep(1000);
     }
 
@@ -29,6 +31,7 @@ int main()
 
 void Draw()
 {
+    system("cls");
     for(int i = 0; i < mapSize; i++)
         {
             for(int j = 0; j < mapSize; j++)
@@ -44,7 +47,32 @@ void Draw()
                     std::cout << "2";
                     j++;
                 }
-               std::cout << "-";
+                switch(Map[i][j])
+                {
+                case 'G':
+                    SetConsoleTextAttribute(hConsole, 2);
+                    std::cout << Gras;
+                    break;
+                case 'W':
+                    SetConsoleTextAttribute(hConsole, 23);
+                    std::cout << Water;
+                    break;
+                case 'F':
+                    SetConsoleTextAttribute(hConsole, 15);
+                    std::cout << FinishLine;
+                    break;
+                case 'C':
+                    SetConsoleTextAttribute(hConsole, 13);
+                    std::cout << Checkpoint;
+                    break;
+                case 'R':
+                    SetConsoleTextAttribute(hConsole, 128);
+                    std::cout << Checkpoint;
+                    break;
+                default:
+                    std::cout << Map[i][j];
+                }
+                SetConsoleTextAttribute(hConsole, 15);
             }
             std::cout << "\n";
         }
@@ -104,75 +132,15 @@ void Input()
         {
         case 'w':
             dir = UP;
-            switch(_getch())
-            {
-            case 'i':
-                dir2 = UP;
-                break;
-            case 'j':
-                dir2 = LEFT;
-                break;
-            case 'k':
-                dir2 = DOWN;
-                break;
-            case 'l':
-                dir2 = RIGHT;
-                break;
-            }
             break;
         case 'a':
             dir = LEFT;
-            switch(_getch())
-            {
-            case 'i':
-                dir2 = UP;
-                break;
-            case 'j':
-                dir2 = LEFT;
-                break;
-            case 'k':
-                dir2 = DOWN;
-                break;
-            case 'l':
-                dir2 = RIGHT;
-                break;
-            }
             break;
         case 's':
             dir = DOWN;
-            switch(_getch())
-            {
-            case 'i':
-                dir2 = UP;
-                break;
-            case 'j':
-                dir2 = LEFT;
-                break;
-            case 'k':
-                dir2 = DOWN;
-                break;
-            case 'l':
-                dir2 = RIGHT;
-                break;
-            }
             break;
         case 'd':
             dir = RIGHT;
-            switch(_getch())
-            {
-            case 'i':
-                dir2 = UP;
-                break;
-            case 'j':
-                dir2 = LEFT;
-                break;
-            case 'k':
-                dir2 = DOWN;
-                break;
-            case 'l':
-                dir2 = RIGHT;
-                break;
-            }
             break;
         case 'i':
             dir2 = UP;
