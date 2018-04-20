@@ -4,11 +4,12 @@
 	"conio.h"
 	"windows.h"
 
-1524240594 source:g:\privat dega\c++\mariokart fake\main.cpp
+1524248277 source:g:\privat dega\c++\mariokart fake\main.cpp
 	<iostream>
 	"conio.h"
 	"windows.h"
 	"Map.h"
+	"chrono"
 
 1524240316 g:\privat dega\c++\mariokart fake\map.h
 

@@ -2,14 +2,12 @@
 #include "conio.h"
 #include "windows.h"
 #include "Map.h"
+#include "chrono"
 
-int x{0}, y{0}, x2{1}, y2{0};
+float x{10}, y{10}, x2{15}, y2{15};
+float P1VelX{1}, P1VelY{0}, P2VelX{0}, P2VelY{0};
 int lastX{0}, lastY{0}, lastX2{0}, lastY2{0};
-
-
-enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN};
-Direction dir;
-Direction dir2;
+char inputP1, inputP2;
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -20,15 +18,26 @@ void Setup();
 void drawMap();
 void drawMap(int x, int y);
 
+//using namespace std::chrono;
+//high_resolution_clock::time_point t1 = high_resolution_clock::now();
+
+//        high_resolution_clock::time_point t2 = high_resolution_clock::now();
+//        duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
+//        int time = time_span.count() * 10;
+//        if(!(time % 10))
+
 int main()
 {
     Setup();
     while(true)
     {
+        inputP1 = x;
+        inputP2 = x;
         Draw();
-        Input();
+        if(_kbhit())
+            Input();
         Logic();
-        Sleep(1000);
+        Sleep(100);
     }
 
 }
@@ -48,17 +57,19 @@ void Setup()
 
 void Draw()
 {
-    char mapSaveP1 = Map[x][y];
-    char mapSaveP2 = Map[x2][y2];
+    int X = x, Y = y, X2 = x2, Y2 = y2;
+    char mapSaveP1 = Map[X][Y];
+    char mapSaveP2 = Map[X2][Y2];
 
     if(lastX != x || lastY != y)
     {
-        setCursorPosition(x, y);
-        std::cout << " ";
+//        setCursorPosition(x, y);
+//        std::cout << " ";
         setCursorPosition(x, y);
         SetConsoleTextAttribute(hConsole, 14); // Player 1 is yellow
         std::cout << Player;
         setCursorPosition(lastX, lastY);
+        SetConsoleTextAttribute(hConsole, 15); // Resetting the console color
         drawMap(lastX, lastY);
     }
 
@@ -68,10 +79,10 @@ void Draw()
         SetConsoleTextAttribute(hConsole, 11); // Player 2 is cyan
         std::cout << Player;
         setCursorPosition(lastX2, lastY2);
+        SetConsoleTextAttribute(hConsole, 15); // Resetting the console color
         drawMap(lastX2, lastY2);
     }
     setCursorPosition(32, 1);
-    SetConsoleTextAttribute(hConsole, 15); // Resetting the console color
 
 }
 
@@ -158,83 +169,77 @@ void Logic()
     lastX2 = x2;
     lastY2 = y2;
 
-    switch (dir)
+    switch(inputP1)
     {
-    case LEFT:
-        x--;
+    case 'w':
+        if(P1VelY > -1)
+            P1VelY -= 0.2;
         break;
-    case RIGHT:
-        x++;
+    case 'a':
+        if(P1VelX > -1)
+            P1VelX -= 0.2;
         break;
-    case UP:
-        y--;
+    case 's':
+        if(P1VelY < 1)
+            P1VelY += 0.2;
         break;
-    case DOWN:
-        y++;
+    case 'd':
+        if(P1VelX < 1)
+            P1VelX += 0.2;
+        break;
+    default:
+        if(P1VelY > 0)
+            P1VelY -= 0.1;
+        else if(P1VelY < 0)
+            P1VelY += 0.1;
+        if(P1VelX > 0)
+            P1VelX -= 0.1;
+        else if(P1VelX < 0)
+            P1VelX += 0.1;
+        break;
+    }
+
+    if(x > 1 && x < mapSize)
+        x += P1VelX;
+    if(y > 1 && y < mapSize)
+        y += P1VelY;
+
+    switch(inputP2)
+    {
+    case 'i':
+        if(P2VelY > -1)
+            P2VelY -= 0.2;
+        break;
+    case 'j':
+        if(P2VelX > -1)
+            P2VelX -= 0.2;
+        break;
+    case 'k':
+        if(P2VelY < 1)
+            P2VelY += 0.2;
+        break;
+    case 'l':
+        if(P2VelX < 1)
+            P2VelX += 0.2;
         break;
     default:
         break;
     }
-    x > mapSize ? x = mapSize : x = x; // Setzt x zurück, wenn Spieler eins rechts außerhalb der map ist
-    y > mapSize ? y = mapSize : y = y; // Setzt y zurück, wenn Spieler eins unten außerhalb der map ist
-    x < 0 ? x = 0 : x = x; // Setzt x zurück, wenn Spieler eins links außerhalb der map ist
-    y < 0 ? y = 0 : y = y; // Setzt y zurück, wenn Spieler eins oben außerhalb der map ist
-    switch (dir2)
-    {
-    case LEFT:
-        x2--;
-        break;
-    case RIGHT:
-        x2++;
-        break;
-    case UP:
-        y2--;
-        break;
-    case DOWN:
-        y2++;
-        break;
-    default:
-        break;
-    }
-    x2 > mapSize ? x2 = mapSize : x2 = x2; // Setzt x2 zurück, wenn Spieler zwei rechts außerhalb der map ist
-    y2 > mapSize ? y2 = mapSize : y2 = y2; // Setzt y2 zurück, wenn Spieler zwei unten außerhalb der map ist
-    x2 < 0 ? x2 = 0 : x2 = x2; // Setzt x2 zurück, wenn Spieler zwei links außerhalb der map ist
-    y2 < 0 ? y2 = 0 : y2 = y2; // Setzt y2 zurück, wenn Spieler zwei oben außerhalb der map ist
+
+    if(x2 > 1 && x2 < mapSize)
+        x2 += P2VelX;
+    if(y2 > 1 && y2 < mapSize)
+        y2 += P2VelY;
+
+
 }
 
 void Input()
 {
-     if(_kbhit())
-    {
-        switch(_getch())
-        {
-        case 'w':
-            dir = UP;
-            break;
-        case 'a':
-            dir = LEFT;
-            break;
-        case 's':
-            dir = DOWN;
-            break;
-        case 'd':
-            dir = RIGHT;
-            break;
-        case 'i':
-            dir2 = UP;
-            break;
-        case 'j':
-            dir2 = LEFT;
-            break;
-        case 'k':
-            dir2 = DOWN;
-            break;
-        case 'l':
-            dir2 = RIGHT;
-            break;
-        default:
-            dir = STOP;
-            break;
-        }
-    }
+    inputP1 = x;
+    inputP2 = x;
+
+    inputP1 = _getch();
+    inputP2 = _getch();
+
 }
