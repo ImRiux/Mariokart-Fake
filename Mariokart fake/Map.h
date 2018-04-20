@@ -42,5 +42,10 @@ char FinishLine = 176;
 char Water = 126;
 char Checkpoint = 219;
 char Road = 219;
+char Booster = 174;
+char Player = 219;
+
+const int mapSize{32};
+
 
 #endif // MAP_H_INCLUDED

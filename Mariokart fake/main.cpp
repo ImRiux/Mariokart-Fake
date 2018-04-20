@@ -4,7 +4,8 @@
 #include "Map.h"
 
 int x{0}, y{0}, x2{1}, y2{0};
-const int mapSize{32};
+int lastX{0}, lastY{0}, lastX2{0}, lastY2{0};
+
 
 enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN};
 Direction dir;
@@ -15,9 +16,13 @@ HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 void Draw();
 void Input();
 void Logic();
+void Setup();
+void drawMap();
+void drawMap(int x, int y);
 
 int main()
 {
+    Setup();
     while(true)
     {
         Draw();
@@ -27,26 +32,55 @@ int main()
     }
 
 }
+void setCursorPosition(int x, int y)
+{
+    static const HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    std::cout.flush();
+    COORD coord = { (SHORT)x, (SHORT)y };
+    SetConsoleCursorPosition(hOut, coord);
+}
+
+void Setup()
+{
+    drawMap();
+}
 
 
 void Draw()
 {
-    system("cls");
+    char mapSaveP1 = Map[x][y];
+    char mapSaveP2 = Map[x2][y2];
+
+    if(lastX != x || lastY != y)
+    {
+        setCursorPosition(x, y);
+        std::cout << " ";
+        setCursorPosition(x, y);
+        SetConsoleTextAttribute(hConsole, 14); // Player 1 is yellow
+        std::cout << Player;
+        setCursorPosition(lastX, lastY);
+        drawMap(lastX, lastY);
+    }
+
+    if(lastX2 != x2 || lastY2 != y2)
+    {
+        setCursorPosition(x2, y2);
+        SetConsoleTextAttribute(hConsole, 11); // Player 2 is cyan
+        std::cout << Player;
+        setCursorPosition(lastX2, lastY2);
+        drawMap(lastX2, lastY2);
+    }
+    setCursorPosition(32, 1);
+    SetConsoleTextAttribute(hConsole, 15); // Resetting the console color
+
+}
+
+void drawMap()
+{
     for(int i = 0; i < mapSize; i++)
         {
             for(int j = 0; j < mapSize; j++)
             {
-
-                if(i == y && j == x)
-                {
-                    std::cout << "1";
-                    j++;
-                }
-                if(i == y2 && j == x2)
-                {
-                    std::cout << "2";
-                    j++;
-                }
                 switch(Map[i][j])
                 {
                 case 'G':
@@ -69,6 +103,10 @@ void Draw()
                     SetConsoleTextAttribute(hConsole, 128);
                     std::cout << Checkpoint;
                     break;
+                case 'B':
+                    SetConsoleTextAttribute(hConsole, 15);
+                    std::cout << Booster;
+                    break;
                 default:
                     std::cout << Map[i][j];
                 }
@@ -78,8 +116,48 @@ void Draw()
         }
 }
 
+void drawMap(int x, int y)
+{
+    switch(Map[y][x])
+    {
+    case 'G':
+        SetConsoleTextAttribute(hConsole, 2);
+        std::cout << Gras;
+        break;
+    case 'W':
+        SetConsoleTextAttribute(hConsole, 23);
+        std::cout << Water;
+        break;
+    case 'F':
+        SetConsoleTextAttribute(hConsole, 15);
+        std::cout << FinishLine;
+        break;
+    case 'C':
+        SetConsoleTextAttribute(hConsole, 13);
+        std::cout << Checkpoint;
+        break;
+    case 'R':
+        SetConsoleTextAttribute(hConsole, 128);
+        std::cout << Checkpoint;
+        break;
+    case 'B':
+        SetConsoleTextAttribute(hConsole, 15);
+        std::cout << Booster;
+        break;
+    default:
+        std::cout << Map[y][x];
+    }
+    SetConsoleTextAttribute(hConsole, 15);
+}
+
+
 void Logic()
 {
+    lastX = x;
+    lastY = y;
+    lastX2 = x2;
+    lastY2 = y2;
+
     switch (dir)
     {
     case LEFT:
