@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1524341692 source:c:\users\lasse\desktop\shit\racegame\src\player.cpp
+	<iostream>
+	<string>
+	"Player.h"
+
+1524341692 c:\users\lasse\desktop\shit\racegame\include\player.h
+	<string>
+	"References.h"
+
+1524341692 c:\users\lasse\desktop\shit\racegame\include\references.h
+
+1524341752 source:c:\users\lasse\desktop\shit\racegame\main.cpp
+	<conio.h>
+	<iostream>
+	<string>
+	"windows.h"
+	"Map.h"
+	"Player.h"
+	"References.h"
+
+1524330815 c:\users\lasse\desktop\shit\racegame\include\map.h
+
