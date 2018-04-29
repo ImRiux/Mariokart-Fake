@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1524998438 source:c:\users\julian\desktop\codeblocks\minigame\funktionen.cpp
+	"HEADER.h"
+
+1523566418 c:\users\julian\desktop\codeblocks\minigame\header.h
+	<iostream>
+	<string>
+	<cstdlib>
+	<ctime>
+	<windows.h>
+	<utility>
+
+1523380693 source:c:\users\julian\desktop\codeblocks\minigame\maps.cpp
+	"HEADER.h"
+
+1525037868 source:c:\users\julian\desktop\codeblocks\minigame\wuerfeln.cpp
+	"HEADER.h"
+
+1524997350 source:c:\users\julian\desktop\codeblocks\minigame\main.cpp
+	"HEADER.h"
+
+1523481716 source:c:\users\julian\desktop\codeblocks\minigame  backup 12.04\funktionen.cpp
+	"HEADER.h"
+
+1523543360 c:\users\julian\desktop\codeblocks\minigame  backup 12.04\header.h
+	<iostream>
+	<string>
+	<cstdlib>
+	<ctime>
+	<windows.h>
+
+1523544521 source:c:\users\julian\desktop\codeblocks\minigame  backup 12.04\main.cpp
+	"HEADER.h"
+
+1523380693 source:c:\users\julian\desktop\codeblocks\minigame  backup 12.04\maps.cpp
+	"HEADER.h"
+
+1523380693 source:c:\users\julian\desktop\codeblocks\minigame  backup 12.04\wuerfeln.cpp
+	"HEADER.h"
+
+1525038731 source:c:\users\julian\desktop\codeblocks\shipton - das würfelspiel\funktionen.cpp
+	"HEADER.h"
+
+1525038965 c:\users\julian\desktop\codeblocks\shipton - das würfelspiel\header.h
+	<iostream>
+	<string>
+	<cstdlib>
+	<ctime>
+	<windows.h>
+	<utility>
+
+1525038965 source:c:\users\julian\desktop\codeblocks\shipton - das würfelspiel\main.cpp
+	"HEADER.h"
+
+1523380693 source:c:\users\julian\desktop\codeblocks\shipton - das würfelspiel\maps.cpp
+	"HEADER.h"
+
+1525037868 source:c:\users\julian\desktop\codeblocks\shipton - das würfelspiel\wuerfeln.cpp
+	"HEADER.h"
+
