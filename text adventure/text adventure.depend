@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1518030829 source:g:\c++\text adventure\main.cpp
+	<iostream>
+	"Functions.h"
+
+1517857747 g:\c++\text adventure\header.h
+
+1517859691 source:g:\c++\text adventure\fight.cpp
+	<iostream>
+	"myVariables.h"
+
+1517859691 source:g:\c++\text adventure\idle.cpp
+	<iostream>
+	"myVariables.h"
+
+1517859288 source:g:\c++\text adventure\story.cpp
+	<iostream>
+	"myVariables.h"
+
+1517859678 g:\c++\text adventure\myvariables.h
+
+1518030454 g:\c++\text adventure\functions.h
+
+1518280461 source:c:\users\leonard\desktop\c++\text adventure\main.cpp
+	<iostream>
+	"Functions.h"
+
+1518269287 c:\users\leonard\desktop\c++\text adventure\functions.h
+
+1523703584 source:g:\privat dega\c++\text adventure\main.cpp
+	<iostream>
+	"Functions.h"
+	<cstdlib>
+	<ctime>
+	<random>
+
+1520372808 g:\privat dega\c++\text adventure\functions.h
+
+1520369340 source:f:\privat dega\c++\text adventure\main.cpp
+	<iostream>
+	"Functions.h"
+	<cstdlib>
+	<ctime>
+	<random>
+
+1520369208 f:\privat dega\c++\text adventure\functions.h
+
