@@ -1,7 +1,0 @@
-Spielername eingeben (ERLEDIGT!)
-Auto auswählen
-Autofarbe auswählen
-10 Rounds: Der wo als erstes 10 Runden geschaft hat hat gewonnen
-	   Gleichzeitig im Ziel -> unentschieden
-Don't hit a wall: Der wo als erstes ne Wand berührt hat verloren
-		  Eventuell mit Leben (5+)
