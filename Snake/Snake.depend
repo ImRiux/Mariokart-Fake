@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1524867409 source:c:\users\lasse\desktop\shit\snake\main.cpp
+	<iostream>
+	"Game.h"
+	"windows.h"
+	<ctime>
+	<cstdlib>
+
+1524867409 c:\users\lasse\desktop\shit\snake\include\game.h
+	"Snake.h"
+
+1524867409 c:\users\lasse\desktop\shit\snake\include\snake.h
+
+1524867439 source:c:\users\lasse\desktop\shit\snake\src\snake.cpp
+	<iostream>
+	"Snake.h"
+	"Game.h"
+	"conio.h"
+	<algorithm>
+
