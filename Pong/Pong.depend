@@ -1,0 +1,136 @@
+# depslib dependency file v1.0
+1529425096 source:g:\privat dega\c++\pong\main.cpp
+	<iostream>
+	"Score.h"
+	"Ball.h"
+	"Player.h"
+	"windows.h"
+	"SetCursorPosition.h"
+	<fstream>
+	"stdio.h"
+	"Intro.h"
+	"AI.h"
+
+1529217505 source:g:\privat dega\c++\pong\score.cpp
+	"Score.h"
+	<iostream>
+	<fstream>
+	"windows.h"
+	"SetCursorPosition.h"
+
+1529174480 g:\privat dega\c++\pong\score.h
+
+1529425000 source:g:\privat dega\c++\pong\ball.cpp
+	"Ball.h"
+	<iostream>
+	"windows.h"
+	"conio.h"
+	"SetCursorPosition.h"
+	"Player.h"
+	<random>
+	"time.h"
+
+1529351393 g:\privat dega\c++\pong\ball.h
+
+1529421454 source:g:\privat dega\c++\pong\player.cpp
+	"Player.h"
+	"SetCursorPosition.h"
+	"fstream"
+	"windows.h"
+	"conio.h"
+	<iostream>
+
+1529420705 g:\privat dega\c++\pong\player.h
+	"Score.h"
+	"Directions.h"
+
+1529174480 g:\privat dega\c++\pong\directions.h
+
+1529174480 g:\privat dega\c++\pong\setcursorposition.h
+
+1529174480 source:g:\privat dega\c++\pong\setcursorposition.cpp
+	"windows.h"
+	<iostream>
+	"SetCursorPosition.h"
+
+1529221104 source:g:\privat dega\c++\pong - kopie\ball.cpp
+	"Ball.h"
+	<iostream>
+	"windows.h"
+	"conio.h"
+	"SetCursorPosition.h"
+	"Player.h"
+	<random>
+
+1529351393 g:\privat dega\c++\pong - kopie\ball.h
+
+1529174480 g:\privat dega\c++\pong - kopie\setcursorposition.h
+
+1529351695 g:\privat dega\c++\pong - kopie\player.h
+	"Score.h"
+	"Directions.h"
+
+1529174480 g:\privat dega\c++\pong - kopie\score.h
+
+1529174480 g:\privat dega\c++\pong - kopie\directions.h
+
+1529354778 source:g:\privat dega\c++\pong - kopie\main.cpp
+	<iostream>
+	"Score.h"
+	"Ball.h"
+	"Player.h"
+	"windows.h"
+	"SetCursorPosition.h"
+	<fstream>
+	"stdio.h"
+	"Intro.h"
+	"AI.h"
+
+1529351158 source:g:\privat dega\c++\pong - kopie\player.cpp
+	"Player.h"
+	"SetCursorPosition.h"
+	"fstream"
+	"windows.h"
+	"conio.h"
+	<iostream>
+
+1529217505 source:g:\privat dega\c++\pong - kopie\score.cpp
+	"Score.h"
+	<iostream>
+	<fstream>
+	"windows.h"
+	"SetCursorPosition.h"
+
+1529174480 source:g:\privat dega\c++\pong - kopie\setcursorposition.cpp
+	"windows.h"
+	<iostream>
+	"SetCursorPosition.h"
+
+1529354821 g:\privat dega\c++\pong - kopie\intro.h
+	<fstream>
+	<iostream>
+	"windows.h"
+	"Player.h"
+	"Ball.h"
+	"conio.h"
+
+1529353902 g:\privat dega\c++\pong - kopie\ai.h
+	<random>
+	"Player.h"
+	"Ball.h"
+	"Intro.h"
+
+1529420705 g:\privat dega\c++\pong\intro.h
+	<fstream>
+	<iostream>
+	"windows.h"
+	"Player.h"
+	"Ball.h"
+	"conio.h"
+
+1529425871 g:\privat dega\c++\pong\ai.h
+	<random>
+	"Player.h"
+	"Ball.h"
+	"Intro.h"
+

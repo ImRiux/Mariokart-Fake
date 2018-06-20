@@ -1,0 +1,6 @@
+#ifndef SETCURSORPOSITION_H_INCLUDED
+#define SETCURSORPOSITION_H_INCLUDED
+
+void setCursorPosition(int x, int y);
+
+#endif // SETCURSORPOSITION_H_INCLUDED
