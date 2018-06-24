@@ -55,7 +55,7 @@ void score::getDigits()
     if(m_score > 9)
     {
         temp3 = m_score;
-        if(index) temp3 -= (temp1 * 1000 + temp2 * 100);
+        if(index) temp3 -= (temp1 * 1000 + temp2 * 100); // Do this if m_score > 99. If score is < 999 temp1 will be zero
         temp3 /= 10;
         singleDigits[index] = temp3;
         ++index;
@@ -63,7 +63,7 @@ void score::getDigits()
     if(m_score >= 0)
     {
         temp4 = m_score;
-        if(index) temp4 -= (temp1 * 1000 + temp2 * 100 + temp3 * 10);
+        if(index) temp4 -= (temp1 * 1000 + temp2 * 100 + temp3 * 10);  // Do this if m_score > 9. If score is < 99 temp1 and temp2 will be zero
         singleDigits[index] = temp4;
         ++index;
     }
@@ -74,7 +74,7 @@ void score::drawScore()
     int digitsToDraw = length();
     int x{0};
     getDigits();
-    int temp1 = m_scorePosX;
+    int tempScorePos = m_scorePosX;
     while(digitsToDraw)
     {
         --digitsToDraw;
@@ -84,34 +84,34 @@ void score::drawScore()
         switch(currentDigit)
         {
         case 0:
-            fileName = "Zero.txt";
+            fileName = "Digits/Zero.txt";
             break;
         case 1:
-            fileName = "One.txt";
+            fileName = "Digits/One.txt";
             break;
         case 2:
-            fileName = "Two.txt";
+            fileName = "Digits/Two.txt";
             break;
         case 3:
-            fileName = "Three.txt";
+            fileName = "Digits/Three.txt";
             break;
         case 4:
-            fileName = "Four.txt";
+            fileName = "Digits/Four.txt";
             break;
         case 5:
-            fileName = "Five.txt";
+            fileName = "Digits/Five.txt";
             break;
         case 6:
-            fileName = "Six.txt";
+            fileName = "Digits/Six.txt";
             break;
         case 7:
-            fileName = "Seven.txt";
+            fileName = "Digits/Seven.txt";
             break;
         case 8:
-            fileName = "Eight.txt";
+            fileName = "Digits/Eight.txt";
             break;
         case 9:
-            fileName = "Nine.txt";
+            fileName = "Digits/Nine.txt";
             break;
         }
         std::ifstream DigitTextFile;
@@ -121,23 +121,23 @@ void score::drawScore()
         char square = 219;
         char half = 220;
         int x = 0;
-        int temp1copy = temp1;
-        int temp2 = m_scorePosY;
-        setCursorPosition(temp1copy, temp2);
+        int tempScorePosCopy = tempScorePos;
+        int tempPosY = m_scorePosY;
+        setCursorPosition(tempScorePosCopy, tempPosY);
         while(digitInstructions[x] != '3')
         {
             switch(digitInstructions[x])
             {
             case '0':
-//                setCursorPosition((++temp1), temp2);
+//                setCursorPosition((++tempScorePos), tempPosY);
                 std::cout << " ";
                 break;
             case '1':
                 std::cout << square;
                 break;
             case '2':
-                temp1copy = temp1;
-                setCursorPosition(temp1copy, (++temp2));
+                tempScorePosCopy = tempScorePos;
+                setCursorPosition(tempScorePosCopy, (++tempPosY));
                 break;
             case '4':
                 std::cout << half;
@@ -146,6 +146,6 @@ void score::drawScore()
             ++x;
         }
 //        std::cout << "\n\n";
-        temp1 += 7;
+        tempScorePos += 7;
     }
 }

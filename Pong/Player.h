@@ -2,6 +2,7 @@
 #define PLAYER_H_INCLUDED
 #include "Score.h"
 #include "Directions.h"
+#include <string>
 
 class player{
 private:
@@ -9,6 +10,7 @@ private:
     float m_vel{1.0};
     char m_inputUP, m_inputDOWN;
     int scoreX;
+    std::string m_name;
 
 public:
     score playerScore;
@@ -22,7 +24,9 @@ public:
     void input();
     float getPosY() {return m_yPos; };
     float getPosX(){ return m_xPos; };
+    std::string getName() { return m_name; };
     void setVel(float vel);
+    void setName(std::string name) { m_name = name; }
 
 };
 

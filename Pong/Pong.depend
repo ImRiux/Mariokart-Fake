@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529425096 source:g:\privat dega\c++\pong\main.cpp
+1529847455 source:g:\privat dega\c++\pong\main.cpp
 	<iostream>
 	"Score.h"
 	"Ball.h"
@@ -10,15 +10,17 @@
 	"stdio.h"
 	"Intro.h"
 	"AI.h"
+	<vector>
+	<algorithm>
 
-1529217505 source:g:\privat dega\c++\pong\score.cpp
+1529756694 source:g:\privat dega\c++\pong\score.cpp
 	"Score.h"
 	<iostream>
 	<fstream>
 	"windows.h"
 	"SetCursorPosition.h"
 
-1529174480 g:\privat dega\c++\pong\score.h
+1529757820 g:\privat dega\c++\pong\score.h
 
 1529425000 source:g:\privat dega\c++\pong\ball.cpp
 	"Ball.h"
@@ -40,9 +42,10 @@
 	"conio.h"
 	<iostream>
 
-1529420705 g:\privat dega\c++\pong\player.h
+1529670993 g:\privat dega\c++\pong\player.h
 	"Score.h"
 	"Directions.h"
+	<string>
 
 1529174480 g:\privat dega\c++\pong\directions.h
 
@@ -120,17 +123,24 @@
 	"Ball.h"
 	"Intro.h"
 
-1529420705 g:\privat dega\c++\pong\intro.h
+1529672527 g:\privat dega\c++\pong\intro.h
 	<fstream>
 	<iostream>
 	"windows.h"
 	"Player.h"
 	"Ball.h"
 	"conio.h"
+	<string>
+	"drawFrame.h"
 
-1529425871 g:\privat dega\c++\pong\ai.h
+1529434111 g:\privat dega\c++\pong\ai.h
 	<random>
 	"Player.h"
 	"Ball.h"
 	"Intro.h"
+
+1529672427 g:\privat dega\c++\pong\drawframe.h
+	"windows.h"
+	"SetCursorPosition.h"
+	<iostream>
 

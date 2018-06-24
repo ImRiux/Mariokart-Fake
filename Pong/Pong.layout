@@ -2,9 +2,34 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="Ball.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1016" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Player.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1980" topLine="56" />
+		</Cursor>
+	</File>
+	<File name="Score.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="372" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="SetCursorPosition.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="159" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="AI.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1288" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="Player.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="651" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="SetCursorPosition.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,54 +37,34 @@
 			<Cursor1 position="294" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Ball.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="893" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Directions.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="78" topLine="0" />
+			<Cursor1 position="195" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Ball.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2512" topLine="84" />
+			<Cursor1 position="3071" topLine="93" />
 		</Cursor>
 	</File>
-	<File name="Player.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Directions.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="424" topLine="16" />
-		</Cursor>
-	</File>
-	<File name="Intro.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="584" topLine="280" />
+			<Cursor1 position="79" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Score.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2875" topLine="67" />
+			<Cursor1 position="2471" topLine="97" />
 		</Cursor>
 	</File>
-	<File name="Player.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="drawFrame.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="366" topLine="0" />
+			<Cursor1 position="1428" topLine="13" />
 		</Cursor>
 	</File>
-	<File name="AI.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Intro.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="698" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="Score.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="341" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="988" topLine="22" />
+			<Cursor1 position="9966" topLine="247" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

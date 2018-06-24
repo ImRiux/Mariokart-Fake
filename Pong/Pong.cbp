@@ -37,13 +37,16 @@
 		<Unit filename="Ball.h" />
 		<Unit filename="Directions.h" />
 		<Unit filename="Intro.h" />
+		<Unit filename="MultiplayerWin.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="Score.cpp" />
 		<Unit filename="Score.h" />
 		<Unit filename="SetCursorPosition.cpp" />
 		<Unit filename="SetCursorPosition.h" />
+		<Unit filename="drawFrame.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sortingFunctions.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -7,6 +7,8 @@
 #include "Player.h"
 #include "Ball.h"
 #include "conio.h"
+#include <string>
+#include "drawFrame.h"
 
 using namespace std;
 
@@ -72,8 +74,14 @@ void Setup()
     lpCursor.dwSize = 1;
     SetConsoleCursorInfo(console,&lpCursor);
 
+    CONSOLE_CURSOR_INFO cursorInfo;
+
+    GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+    cursorInfo.bVisible = false;
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+
     ifstream ReadAnimation;  // ifstream, i stands for input. Object for reading files
-    ReadAnimation.open("Animation.txt");
+    ReadAnimation.open("Intro/Animation.txt");
     char AnimationInstructions[800]; // I don't know the exact length of the string in Animation.txt but 400 was too small so I just went for 800...
     ReadAnimation >> AnimationInstructions;
     int index{0};
@@ -130,100 +138,89 @@ void Setup()
     // Line 117 - 213 only do one thing: draw the logo (Pong)
 
     ifstream ReadLogo;
-    ReadLogo.open("Ponglogo.txt");
+    ReadLogo.open("Intro/Ponglogo.txt");
     char LogoInstructions[627];    // every line has 57 characters, the are 11 lines ( 57 * 11 = 627 )
     ReadLogo >> LogoInstructions;
     yCoord = -1; // for some reason the first few lines of the logo are blank/whitespaces (idk what I was doing wrong lmao) so I start at -1 to compensate for that
     for(int j = 0; j < 30; j++)
     {
-        yCoord = 0;
-        SetConsoleTextAttribute(hConsole, 0); // These first two for loops have a color attribute of 0, which is black on black. They overwrite the colored text. So it's similar to clearing the screen.
-        for(int i = 0; i < 627; i++) // This one erases the right one (green)
-        {
-            if(!(i % 57)) { xCoord = (59 - j + 1) ; ++yCoord; setCursorPosition(xCoord, yCoord); }
-
-            switch(LogoInstructions[i])
-            {
-            case '0':
-                std::cout << " ";
-                break;
-            case '1':
-                std::cout << halfDown;
-                break;
-            case '2':
-                std::cout << halfUp;
-                break;
-            case '3':
-                std::cout << square;
-                break;
-            }
-        }
-        yCoord = -1;
         SetConsoleTextAttribute(hConsole, 0);
-        for(int i = 0; i < 627; i++) // This one erases the left one (light blue)
-        {
-            if(!(i % 57)) { xCoord = j - 1; ++yCoord; setCursorPosition(xCoord, yCoord); }
 
-            switch(LogoInstructions[i])
-            {
-            case '1':
-                std::cout << halfDown;
-                break;
-            case '2':
-                std::cout << halfUp;
-                break;
-            case '3':
-                std::cout << square;
-                break;
-            }
-        } // Btw I know it flickers like crazy but tbh idk a better way of erasing them so yea
-
-        yCoord = -1;
-        SetConsoleTextAttribute(hConsole, 11); // draws the blue PONG
-        for(int i = 0; i < 627; i++)
-        {
-            if(!(i % 57)) { xCoord = j; ++yCoord; setCursorPosition(xCoord, yCoord); } // if(!(i % 57)) is true when i is dividable by 57 without rest. 57 is the length of a line of the logo
-
-            switch(LogoInstructions[i])
-            {
-            case '0':
-                std::cout << " ";
-                break;
-            case '1':
-                std::cout << halfDown;
-                break;
-            case '2':
-                std::cout << halfUp;
-                break;
-            case '3':
-                std::cout << square;
-                break;
-            }
-        }
         yCoord = 0;
-        SetConsoleTextAttribute(hConsole, 10); // draws the green PONG
-        for(int i = 0; i < 627; i++)
+        char temp[57];
+        int i2{0};
+        SetConsoleTextAttribute(hConsole, 11); // draws the blue PONG
+        for(int i = 0; i <= 627; i++)
         {
-            if(!(i % 57)) { xCoord = (59 - j) ; ++yCoord; setCursorPosition(xCoord, yCoord); }
 
+            if(!(i % 57) && i > 0) { xCoord = j; setCursorPosition(xCoord, yCoord); std::cout << temp; ++yCoord; } // if(!(i % 57)) is true when i is dividable by 57 without rest. 57 is the length of a line of the logo
             switch(LogoInstructions[i])
             {
             case '0':
-                std::cout << " ";
+                temp[i2] = ' ';
                 break;
             case '1':
-                std::cout << halfDown;
+                temp[i2] = halfDown;
                 break;
             case '2':
-                std::cout << halfUp;
+                temp[i2] = halfUp;
                 break;
             case '3':
-                std::cout << square;
+                temp[i2] = square;
                 break;
             }
+            i2++;
+            if(i2 > 56) i2 = 0;
+        }
+        for(int i = 0; i < 12; i++)
+        {
+            setCursorPosition(xCoord = (j - 1), i);
+            std::cout << "\n";
+            setCursorPosition(xCoord = (j - 1), i);
+            std::cout << " ";
+            setCursorPosition(xCoord = (j + 57), i);
+            std::cout << " ";
+            setCursorPosition(xCoord = (j + 58), i);
+            std::cout << " ";
+            setCursorPosition(xCoord = (j + 59), i);
+            std::cout << " ";
+        }
+        i2 = 0;
+        yCoord = 1;
+        SetConsoleTextAttribute(hConsole, 10); // draws the green PONG
+        for(int i = 0; i <= 627; i++)
+        {
+
+            if(!(i % 57) && i > 0) { xCoord = (59 - j); setCursorPosition(xCoord, yCoord); std::cout << temp; ++yCoord;} // if(!(i % 57)) is true when i is dividable by 57 without rest. 57 is the length of a line of the logo
+            switch(LogoInstructions[i])
+            {
+            case '0':
+                temp[i2] = ' ';
+                break;
+            case '1':
+                temp[i2] = halfDown;
+                break;
+            case '2':
+                temp[i2] = halfUp;
+                break;
+            case '3':
+                temp[i2] = square;
+                break;
+            }
+            i2++;
+            if(i2 > 56) i2 = 0;
+        }
+        for(int i = 0; i < 12; i++)
+        {
+            setCursorPosition(xCoord = (116 - j), i);
+            std::cout << " ";
+            setCursorPosition(xCoord = (117 - j), i);
+            std::cout << " ";
+            setCursorPosition(xCoord = (118 - j), i);
+            std::cout << " ";
         }
         if(j == 29) { for(int m = 0; m < 61; ++m) { setCursorPosition((m + 30), 1); SetConsoleTextAttribute(hConsole, 186); if( LogoInstructions[(m)] == '1')std::cout << halfDown; } } // executes the last iteration of the for loop -
-        Sleep(25);  // - it's for aesthetic.. it removes the black outline between the green and the blue PONG, at least between the top lines.
+        Sleep(50);  // - it's for aesthetic.. it removes the black outline between the green and the blue PONG, at least between the top lines.
     }
     SetConsoleTextAttribute(hConsole, 7); // 7 is white on black
     Sleep(2500);
@@ -234,35 +231,7 @@ void Setup()
 
     // choosing gamemode //
 
-    char temp;
-	setCursorPosition(50, 10);    // Line 30 - 58 are drawing the frame to the screen
-	temp = 201;
-    cout << temp;               // These first 12 Lines draw the corners in the order: left upper, right upper, left bottom, right bottom
-    setCursorPosition(69, 10);
-    temp = 187;
-    cout << temp;
-    setCursorPosition(50, 20);
-    temp = 200;
-    cout << temp;
-    setCursorPosition(69, 20);
-    temp = 188;
-    cout << temp;
-    for(int i = 51; i < 69; ++i) // this for loop draws the horizontal lines of the frame
-    {
-        temp = 205;
-        setCursorPosition(i, 10); // draws the upper one
-        cout << temp;
-        setCursorPosition(i, 20); // draws the bottom one
-        cout << temp;
-    }
-    for(int i = 11; i < 20; ++i) // this loop draws the vertical lines of the frame
-    {
-        temp = 186;
-        setCursorPosition(50, i); // left
-        cout << temp;
-        setCursorPosition(69, i); // right
-        cout << temp;
-    }
+    drawFrame(19, 10, 50, 10);
 
     setCursorPosition(51, 11);
     std::cout << "Choose a game mode";
@@ -282,34 +251,32 @@ void Setup()
 
     // Gamemode was chosen //
 
-	setCursorPosition(0, 0);    // Line 30 - 58 are drawing the frame to the screen
-	temp = 201;
-    cout << temp;               // These first 12 Lines draw the corners in the order: left upper, right upper, left bottom, right bottom
-    setCursorPosition(119, 0);
-    temp = 187;
-    cout << temp;
-    setCursorPosition(0, 29);
-    temp = 200;
-    cout << temp;
-    setCursorPosition(119, 29);
-    temp = 188;
-    cout << temp;
-    for(int i = 1; i < 119; ++i) // this for loop draws the horizontal lines of the frame
+    drawFrame(19, 10, 50, 10);
+
+    setCursorPosition(51, 11);
+    std::cout << "Enter a name";
+    if(Gamemode)
     {
-        temp = 205;
-        setCursorPosition(i, 0); // draws the upper one
-        cout << temp;
-        setCursorPosition(i, 29); // draws the bottom one
-        cout << temp;
+        setCursorPosition(51, 14);
+        std::cout << "Player 1";
     }
-    for(int i = 1; i < 29; ++i) // this loop draws the vertical lines of the frame
+    setCursorPosition(51, 15);
+    std::string tempName;
+    std::cin >> tempName;
+    Player1.setName(tempName);
+    if(Gamemode)
     {
-        temp = 186;
-        setCursorPosition(0, i); // left
-        cout << temp;
-        setCursorPosition(119, i); // right
-        cout << temp;
+        setCursorPosition(51, 17);
+        std::cout << "Player 2";
+        setCursorPosition(51, 18);
+        std::cin >> tempName;
+        Player2.setName(tempName);
     }
+    system("cls");
+
+    // Name was chosen //
+
+    drawFrame(119, 29, 0, 0);
 }
 
 

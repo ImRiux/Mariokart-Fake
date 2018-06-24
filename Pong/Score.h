@@ -13,6 +13,7 @@ public:
     ~score();
     void add(int amount);
     int getScore();
+    void setScore(int score) { m_score = score; };
     int length();
     void getDigits();
     void drawScore();
