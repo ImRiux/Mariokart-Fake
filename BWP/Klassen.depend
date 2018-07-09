@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1527186578 source:c:\users\julian\desktop\codeblocks\klassen\main.cpp
+	<iostream>
+	<string>
+	<vector>
+
+1529063839 source:c:\users\julian\desktop\codeblocks\bwp\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	<windows.h>
+
